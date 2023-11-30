@@ -1,0 +1,88 @@
+六、用户和组相关命令
+
+1、groupadd命令
+
+功能：添加组
+
+添加test1组
+groupadd test1
+
+添加test2组，组id为1111
+groupadd -g 1111 test2
+
+2、useradd命令
+
+功能：添加用户
+
+添加用户user1，home为/home/user1，组为user1
+useradd user1
+
+添加用户test1，home为/home/test1，组为test1
+useradd -g test1 -m -d /home/test1 test1
+
+显示已登陆的用户列表
+user list
+
+3、passwd命令
+
+功能：更改用户密码
+
+修改用户user1的密码
+passwd user1
+
+将root用户的密码删除
+passwd -d root
+
+4、userdel命令
+
+功能：删除用户
+
+删除user1用户
+userdel user1　
+
+5、chown命令
+
+功能：改变文件或目录的所有者
+
+将/dir目录设置为user1所有
+chown user1 /dir
+
+将/dir目录下所有文件和目录，
+设置为user1所有,组为user1。
+-R递归到下面的每个文件和目录
+chown -R user1.user1 /dir
+
+6、chgrp命令
+
+功能：改变文件或目录的所有组
+
+将/dir目录设置为user1所有
+chgrp user1 /dir
+
+7、chmod命令
+
+功能：改变用户的权限
+
+将file文件设置为可执行，
+脚本类文件一定要这样设置一个，
+否则得用bash file才能执行
+chmod a+x file　
+
+将文件file设置为可读写
+chmod 666 file　
+
+将文件file设置为，
+所有者为完全权限，
+同组可以读和执行，
+其他无权限
+chmod 750 file
+
+8、id命令
+
+功能：显示用户的信息，包括uid、gid等
+
+9、finger命令
+
+功能：显示用户的信息
+
+注意：debian下没有该命令。

@@ -1,0 +1,90 @@
+一、文件、目录操作命令
+
+1、ls命令
+
+功能：显示文件和目录的信息
+
+ls　以默认方式显示当前目录文件列表
+
+ls -a 显示所有文件包括隐藏文件
+
+ls -l 显示文件属性，
+包括大小，日期，符号连接，
+是否可读写及是否可执行
+
+ls -lh 显示文件的大小，
+以容易理解的格式印出文件大小
+
+ls -lt 显示文件，按照修改时间排序
+
+2、cd命令
+
+功能：改名目录
+
+cd dir　切换到当前目录下的dir目录
+
+cd /　切换到根目录
+
+cd ..　切换到到上一级目录
+
+cd ../..　切换到上二级目录
+
+cd ~　切换到用户目录，
+比如是root用户，则切换到/root下
+
+3、cp命令
+
+功能：copy文件
+
+将文件source复制为target
+cp source target　
+
+将/root下的文件source复制到当前目录
+cp /root /source.　
+
+将整个目录复制，两目录完全一样
+cp –av soure_dir target_dir
+
+4、rm命令
+
+功能：删除文件或目录
+
+rm file　删除某一个文件
+
+rm -f file 删除时候不进行提示。
+可以于r参数配合使用
+
+rm -rf dir　删除当前目录下叫dir的整个目录
+
+5、mv命令
+
+功能：将文件移动走，
+或者改名，在uinx下面没有改名的命令，
+如果想改名，可以使用该命令
+
+mv source target　将文件source更名为target
+
+6、diff
+
+功能：比较文件内容
+
+diff dir1 dir2
+比较目录1与目录2的文件列表是否相同，
+但不比较文件的实际内容，不同则列出
+
+diff file1 file2　
+比较文件1与文件2的内容是否相同，
+如果是文本格式的文件，则将不相同的内容显示，
+如果是二进制代码则只表示两个文件是不同的
+
+comm file1 file2
+比较文件，显示两个文件不相同的内容
+
+7、ln命令
+
+功能：建立链接。
+windows的快捷方式就是根据链接的原理来做的
+
+ln source_path target_path 硬连接
+
+ln -s source_path target_path 软连接

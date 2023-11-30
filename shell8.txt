@@ -1,0 +1,181 @@
+八、网络相关命令
+
+1、ifconfig命令
+
+功能：显示修改网卡的信息
+
+ifconfig 显示网络信息
+
+ifconfig eth0 显示eth0网络信息
+
+修改网络信息：
+
+ifconfig eth0 192.168.1.1
+netmask 255.255.255.0
+设置网卡1的地址192.168.1.1,
+掩码为255.255.255.0
+
+捆绑网卡1的第二个地址为192.168.1.2
+ifconfig eth0:1 192.168.1.2
+
+捆绑网卡1的第n个地址为192.168.1.n
+ifconfig eth0:x 192.168.1.n
+
+2、route命令
+
+功能：显示当前路由设置情况
+
+route 显示当前路由设置情况，比较慢一般不用。
+
+添加静态路由
+route add -net 10.0.0.0
+netmask 255.255.0.0
+gw 192.168.1.254
+
+添加静态路由
+route del -net 10.0.0.0
+netmask 255.255.0.0
+gw 192.168.1.254
+
+设置192.168.1.1为默认的路由
+route add default
+gw 192.168.1.1 metric1
+
+将默认的路由删除
+route del default
+
+3、netstat命令
+
+etstat -an  查看网络端口信息
+
+netstat -nr 查看路由表信息，比route快多了，
+
+4、启动网络的命令
+
+redhat族的命令:
+
+/etc/init.d/network
+
+debian命令:
+
+/etc/init.d/networking
+
+/etc/init.d/network stop 停止网络，
+
+/etc/init.d/network start 启动网络，
+
+5、手工修改网络配置
+
+(1)、debian系统
+
+配置文件位置为：/etc/network/interfaces
+
+# The loopback network interface
+
+auto lo
+
+iface lo inet loopback
+
+# The primary network interface
+
+auto eth0 eth1
+
+iface eth0 inet static
+
+        address 10.4.5.6
+
+        netmask 255.255.255.0
+
+        network 10.4.5.0
+
+        broadcast 10.4.5.255
+
+iface eth1 inet static
+
+        address 219.25.5.60
+
+        netmask 255.255.255.192
+
+        network 219.25.5.0
+
+        broadcast 219.25.5.63
+
+        gateway 219.25.5.30
+
+修改后保存配置后，运行
+
+/etc/init.d/networking restart
+
+网络配置就改变了
+
+(2)、redhat系统
+
+配置文件位置为：/etc/sysconfig/network-scripts/ifcfg-eth0
+
+DEVICE=eth0
+
+BOOTPROTO=static
+
+BROADCAST=192.168.1.255
+
+IPADDR=192.168.1.5
+
+NETMASK=255.255.255.0
+
+NETWORK=192.168.1.0
+
+GATEWAY=192.168.1.254
+
+ONBOOT=yes
+
+TYPE=Ethernet
+
+修改后保存配置后，运行
+
+/etc/init.d/network restart
+
+或者
+
+service network restart
+
+网络配置就改变了。
+
+默认DNS的文件的位置为：/etc/resolv.conf
+
+#cat /etc/resolv.conf
+
+search test.com.cn
+
+nameserver 192.168.1.11
+
+6、网络排错
+
+(1)、ping命令
+
+功能：不说了，不知道就用干这行了。
+
+ping
+
+(2)、traceroute命令
+
+功能：路由跟踪
+
+traceroute
+
+(3)、nslookup命令
+
+功能：域名解析排错
+
+九、其他命令
+
+1、ssh命令
+
+功能：远程登陆到其他UNIX主机
+
+2、scp命令
+
+功能：安全copy
+
+3、telnet命令
+
+功能：登陆到远程主机

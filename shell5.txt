@@ -1,0 +1,145 @@
+五、磁盘操作命令
+
+1、df命令
+
+功能：检查文件系统的磁盘空间占用情况。
+可以利用该命令来获取硬盘被占用了多少空间，
+目前还剩下多少空间等信息。
+
+参数 功能
+
+-a 列出全部目录
+
+-Ta 列出全部目录，并且显示文件类型
+
+-B 显示块信息
+
+-i 以i节点列出全部目录
+
+-h 按照日常习惯显示（如：1K、100M、20G）
+
+-x [filesystype] 不显示[filesystype]
+
+2、du命令
+
+功能：
+检测一个目录和
+（递归地）所有它的子目录中的
+文件占用的磁盘空间。
+
+参数 功能
+
+-s [dirName] 显示目录占用总空间
+
+-sk [dirName] 显示目录占用总空间，以k为单位
+
+-sb [dirName] 显示目录占用总空间，以b为单位
+
+-sm [dirName] 显示目录占用总空间，以m为单位
+
+-sc [dirName] 显示目录占用总空间，加上目录统计
+
+-sh [dirName] 只统计目录大小
+
+3、mount命令
+
+功能：使用mount命令就可在Linux中挂载各种文件系统。
+
+格式：mount -t 设备名 挂载点
+
+（1）、mount /dev/sda1 /mnt/filetest
+
+mount -t vfat /dev/hda /mnt/fatfile
+
+mount -t ntfs /dev/hda /mnt/ntfsfile
+
+mount -t iso9660 /dev/cdrom /mnt/cdrom
+
+mount -o 设备名 挂载点
+
+（2）、使用usb设备
+
+modprobe usb-storage
+
+mkdir /mnt/usb
+
+mount -t auto /dev/sdx1 /mnt/usb
+
+umount /mnt/usb
+
+4、mkswap命令
+
+功能：使用mkswap命令可以创建swap空间，如：
+ 
+5、fdisk命令
+
+功能：对磁盘进行分区
+
+格式化xxx设备(xxx是指磁盘驱动器的名字)
+fdisk /dev/xxx
+
+fdisk -l 显示磁盘的分区表
+
+6、mkfs命令
+
+功能：格式化文件系统，
+可以指定文件系统的类型，如ext2、ext3、fat、ntfs等
+
+格式1：mkfs.ext3 options /dev/xxx
+
+格式2：mkfs -t ext2 options /dev/xxx
+
+参数   功能
+
+-b	 块大小
+
+-i   节点大写
+
+-m   预留管理空间大小
+
+7、e2fsck命令
+
+功能：磁盘检测
+
+检查/dev/hda1是否有文件系统错误，提示修复方式
+e2fsck /dev/hda1
+
+检查/dev/hda1是否有错误，如果有则自动修复
+e2fsck -p /dev/hda1　
+
+检查错误，所有提问均于yes方式执行
+e2fsck -y /dev/hda1　
+
+检查磁盘是否有坏区
+e2fsck -c /dev/hda1　
+
+8、tune2fs命令
+
+功能：调整ext2/ext3文件的参数
+
+参数	功能
+
+-l	查看文件系统信息
+
+-c	设置强制自检的挂载次数
+
+-i	设置强制自检的间隔时间，单位天
+
+-m	保留块的百分比
+
+-j	将ext2文件系统转换成ext3格式
+
+# tune2fs -l /dev/sda1
+
+9、dd命令
+
+功能：把指定的输入文件拷贝到指定的输出文件中，
+并且在拷贝过程中可以进行格式转换。
+
+跟DOS下的diskcopy命令的作用类似。
+
+将软盘的内容复制成一个镜像
+dd if=/dev/fd0 of=floppy.img　
+
+将一个镜像的内容复制到软盘，做驱动盘的时候经常用。
+dd if=floppy.img of=/dev/fd0　
