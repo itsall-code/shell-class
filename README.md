@@ -9,7 +9,7 @@
 ## 运行方法
 1. 克隆该文件或下载该压缩包<br>
 ```shell
-git@github.com:itsall-code/shell-class.git
+git clone git@github.com:itsall-code/shell-class.git
 ```
 
 2. 访问改文件夹或解压后访问<br>
