@@ -1,6 +1,6 @@
 # shell-class
 
-[shell-class](https://github.com/itsall-code/shell-class) 
+[shell-class](https://github.com/itsall-code/shell-class)<br>
 一个用Shell 写的课程设计
 
 ## 运行环境:<br>
