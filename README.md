@@ -1,7 +1,9 @@
 # shell-class
 
 [shell-class](https://github.com/itsall-code/shell-class)<br>
-一个用Shell 写的课程设计
+一个用Shell 写的课程设计<br>
+适合Linux初学者，综合学习Shell语言<br>
+希望能带给每个Linux初学者乐趣
 
 ## 运行环境:<br>
 1. bash
