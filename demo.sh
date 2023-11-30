@@ -69,7 +69,7 @@ function commands_out {
 	# 每一类都放在shell1～8.txt文件中
 	n=`cat $commands_select` # 读取在commands_menu选择的值
 	dialog --title "常用shell命令"\
-		--textbox shell$n.txt 20 50
+		--textbox ./doc/shell$n.txt 20 50
 		# 输出储存在shelln.txt文件中的shell，n为类别号
 }
 
