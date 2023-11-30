@@ -1,5 +1,6 @@
 # shell-class
 
+[shell-class](https://github.com/itsall-code/shell-class)
 一个用Shell 写的课程设计
 
 ## 运行环境:<br>
@@ -12,7 +13,7 @@
 git clone git@github.com:itsall-code/shell-class.git
 ```
 
-2. 访问改文件夹或解压后访问<br>
+2. 访问该文件夹或解压后访问<br>
 ```shell
 cd ./shell-class
 ```
